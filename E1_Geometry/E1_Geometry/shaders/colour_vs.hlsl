@@ -11,6 +11,7 @@ cbuffer MatrixBuffer : register(b0)
 
 struct InputType
 {
+	
 	float4 position : POSITION;
 	float4 colour : COLOR;
 };
@@ -32,7 +33,8 @@ OutputType main(InputType input)
 	output.position = mul(input.position, worldMatrix);
 	output.position = mul(output.position, viewMatrix);
 	output.position = mul(output.position, projectionMatrix);
-
+    output.position.x = output.position.x * 2;
+    output.position.y = output.position.y * 2;
 	output.colour = input.colour;
 	
 
